@@ -1,0 +1,19 @@
+{
+  "name": "funbox-free-port-finder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ava": "0.24.0",
+    "pify": "3.0.0"
+  }
+}
