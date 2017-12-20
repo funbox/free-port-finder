@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "ava"
+    "test": "nyc ava",
+    "lint": "eslint --cache -c .eslintrc --ext .js ./"
   },
   "files": [
     "index.js"
@@ -14,6 +15,12 @@
   "license": "ISC",
   "devDependencies": {
     "ava": "0.24.0",
+    "eslint": "3.19.0",
+    "eslint-config-airbnb": "14.1.0",
+    "eslint-plugin-import": "2.7.0",
+    "eslint-plugin-jsx-a11y": "3.0.2",
+    "eslint-plugin-react": "6.9.0",
+    "nyc": "11.4.1",
     "pify": "3.0.0"
   }
 }
