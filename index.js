@@ -1,10 +1,10 @@
 const net = require('net');
 
 const isPortFree = port => new Promise(
-  resolve => {
+  (resolve) => {
     const server = net.createServer();
 
-    server.once('error', err => {
+    server.once('error', (err) => {
       if (err.code === 'EADDRINUSE') {
         resolve(false);
       } else {
@@ -24,7 +24,7 @@ const isPortFree = port => new Promise(
 );
 
 const findFreePort = port => isPortFree(port)
-  .then(isFree => {
+  .then((isFree) => {
     if (isFree) {
       return port;
     }
