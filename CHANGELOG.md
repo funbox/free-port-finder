@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.0.0 (06.07.2017)
+
+* Improve .gitignore.
+* Move the package to @funboxteam scope.
+
 ## 1.2.0 (15.02.2018)
 
 * Fix syntax errors to support old versions of Node.js.
