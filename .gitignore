@@ -1,57 +1,69 @@
-node_modules
-package-lock.json
-### JetBrains template
-# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and Webstorm
-# Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
+# -- Node.js --
 
-# User-specific stuff:
-.idea/
-.idea/**/workspace.xml
-.idea/**/tasks.xml
-.idea/dictionaries
+# Logs
+logs
+*.log
+npm-debug.log*
 
-# Sensitive or high-churn files:
-.idea/**/dataSources/
-.idea/**/dataSources.ids
-.idea/**/dataSources.xml
-.idea/**/dataSources.local.xml
-.idea/**/sqlDataSources.xml
-.idea/**/dynamic.xml
-.idea/**/uiDesigner.xml
+# Dependency directory
+/node_modules
 
-# Gradle:
-.idea/**/gradle.xml
-.idea/**/libraries
+# Optional npm cache directory
+.npm
 
-# CMake
-cmake-build-debug/
 
-# Mongo Explorer plugin:
-.idea/**/mongoSettings.xml
+# -- VSCode --
+/.vscode
+jsconfig.json
+
+
+# -- IDEA --
+/.idea
 
 ## File-based project format:
+*.ipr
 *.iws
+*.iml
 
-## Plugin-specific files:
 
-# IntelliJ
-out/
+# -- Vim --
 
-# mpeltonen/sbt-idea plugin
-.idea_modules/
+# swap
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
 
-# JIRA plugin
-atlassian-ide-plugin.xml
+# session
+Session.vim
 
-# Cursive Clojure plugin
-.idea/replstate.xml
+# temporary
+.netrwhist
+*~
+/tmp
 
-# Crashlytics plugin (for Android Studio and IntelliJ)
-com_crashlytics_export_strings.xml
-crashlytics.properties
-crashlytics-build.properties
-fabric.properties
 
-.nyc_output
+# -- Eclipse --
+*.swp
+
+
+# -- OS X --
+.DS_Store
+
+
+# -- Public --
+/public
+/public-sandbox
+
+
+# -- Tests --
+/test-reports
+/test-logs
+/gemini-*
+/screenshots
+
+
+# -- Sass --
+.sass-cache
+
+
+# -- ESLint --
 .eslintcache
-coverage
