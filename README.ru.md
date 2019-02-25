@@ -1,4 +1,4 @@
-# funbox-free-port-finder
+# @funboxteam/free-port-finder
 
 Плагин позволяет проверить доступность заданного порта или найти свободный порт последовательным перебором значений, начиная от заданного.
 
@@ -11,7 +11,7 @@
 Поиск свободного порта:
 
 ```javascript
-const { findFreePort } = require('free-port-finder');
+const { findFreePort } = require('@funboxteam/free-port-finder');
 
 const port = 3000;
 
@@ -24,7 +24,7 @@ findFreePort(port)
 Проверка передаваемого порта:
 
 ```javascript
-const { isPortFree } = require('free-port-finder');
+const { isPortFree } = require('@funboxteam/free-port-finder');
 
 const port = 3000;
 

@@ -1,4 +1,4 @@
-# funbox-free-port-finder
+# @funboxteam/free-port-finder
 
 The package checks availability of the passed port, or trying to find the first free port starting from the passed one.
 
@@ -11,7 +11,7 @@ The package checks availability of the passed port, or trying to find the first 
 Searching for the available port:
 
 ```javascript
-const { findFreePort } = require('free-port-finder');
+const { findFreePort } = require('@funboxteam/free-port-finder');
 
 const port = 3000;
 
@@ -24,7 +24,7 @@ findFreePort(port)
 Checking for availability of the passed port:
 
 ```javascript
-const { isPortFree } = require('free-port-finder');
+const { isPortFree } = require('@funboxteam/free-port-finder');
 
 const port = 3000;
 
