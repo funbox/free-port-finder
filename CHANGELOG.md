@@ -1,6 +1,10 @@
 # Changelog
 
-## 2.0.0 (06.07.2017)
+## 2.0.1 (26.02.2019)
+
+* Fix package name in README.
+
+## 2.0.0 (06.07.2018)
 
 * Improve .gitignore.
 * Move the package to @funboxteam scope.
