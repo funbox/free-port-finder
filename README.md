@@ -1,16 +1,29 @@
 # @funboxteam/free-port-finder
 
-The package checks availability of the passed port, or trying to find the first free port starting from the passed one.
+[![npm](https://img.shields.io/npm/v/@funboxteam/free-port-finder.svg)](https://www.npmjs.com/package/@funboxteam/free-port-finder)
 
-`isPortFree` accepts port and returns bool value (port status) through a Promise instance.
+The package checks availability of the passed port, or tries to find the first available port starting from the passed one.
 
-`findFreePort` accepts port and returns first available port (starting from the passed one) through a Promise instance.
+[По-русски](./README.ru.md)
+
+## Rationale
+
+When you start a TCP (or HTTP) server on localhost you want to be sure that the desirable port isn't occupied 
+or you don't really care and want to get the first available one. 
+
+This tiny tool takes on this task. 
+
+## Installation
+
+```bash
+npm install --save-dev @funboxteam/free-port-finder
+```
 
 ## Usage
 
-Searching for the available port:
+`findFreePort(port: number): Promise<number>` searches for the available port starting from the passed one:
 
-```javascript
+```js
 const { findFreePort } = require('@funboxteam/free-port-finder');
 
 const port = 3000;
@@ -21,9 +34,9 @@ findFreePort(port)
   });
 ```
 
-Checking for availability of the passed port:
+`isPortFree(port: number): Promise<bool>` checks the availability of the passed port:
 
-```javascript
+```js
 const { isPortFree } = require('@funboxteam/free-port-finder');
 
 const port = 3000;
@@ -37,3 +50,5 @@ isPortFree(port)
     }
   });
 ```
+
+[![Sponsored by FunBox](https://funbox.ru/badges/sponsored_by_funbox_centered.svg)](https://funbox.ru)

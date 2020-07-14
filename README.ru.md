@@ -1,16 +1,27 @@
 # @funboxteam/free-port-finder
 
-Плагин позволяет проверить доступность заданного порта или найти свободный порт последовательным перебором значений, начиная от заданного.
+[![npm](https://img.shields.io/npm/v/@funboxteam/free-port-finder.svg)](https://www.npmjs.com/package/@funboxteam/free-port-finder)
 
-Метод `isPortFree` принимает номер порта и возвращает через промис булевое значение в зависимости от состояния порта.
+Пакет позволяет проверить доступность заданного порта или найти свободный порт последовательным перебором значений, начиная с переданного.
 
-Метод `findFreePort` принимает номер порта и возвращает через промис передаваемый или следующий свободный порт.
+## Назначение
 
-## Использование плагина в проекте
+Когда запускаешь TCP (или HTTP) сервер на localhost, хочется быть уверенным, что выбранный порт на занят. 
+А порой и вовсе нужно просто найти первый попавшийся свободный.
 
-Поиск свободного порта:
+Этот маленький пакет берёт на себя эту задачу.
 
-```javascript
+## Установка
+
+```bash
+npm install --save-dev @funboxteam/free-port-finder
+```
+
+## Использование
+
+`findFreePort(port: number): Promise<number>` находит первый доступный порт, начиная с переданного:
+
+```js
 const { findFreePort } = require('@funboxteam/free-port-finder');
 
 const port = 3000;
@@ -21,9 +32,9 @@ findFreePort(port)
   });
 ```
 
-Проверка передаваемого порта:
+`isPortFree(port: number): Promise<bool>` проверяет доступность переданного порта:
 
-```javascript
+```js
 const { isPortFree } = require('@funboxteam/free-port-finder');
 
 const port = 3000;
@@ -37,3 +48,5 @@ isPortFree(port)
     }
   });
 ```
+
+[![Sponsored by FunBox](https://funbox.ru/badges/sponsored_by_funbox_centered.svg)](https://funbox.ru)

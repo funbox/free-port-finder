@@ -1,18 +1,22 @@
 {
   "name": "@funboxteam/free-port-finder",
   "version": "2.0.1",
-  "description": "",
+  "description": "Tiny utility for checking ports availability",
+  "keywords": ["port", "server", "utility"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/funbox/free-port-finder"
+  },
   "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "author": "Dmitry Shvalyov <dmitry@shvalyov.ru> (https://shvalyov.ru)",
+  "license": "MIT",
   "scripts": {
     "test": "nyc ava",
     "lint": "eslint --cache --ext .js ./"
   },
-  "files": [
-    "index.js"
-  ],
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@funboxteam/eslint-config": "5.0.0",
     "ava": "3.10.1",
