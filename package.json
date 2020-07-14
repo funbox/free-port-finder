@@ -1,6 +1,6 @@
 {
   "name": "@funboxteam/free-port-finder",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "Tiny utility for checking ports availability",
   "keywords": ["port", "server", "utility"],
   "repository": {

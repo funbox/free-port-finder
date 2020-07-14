@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.0.0 (14.07.2020)
+
+* Add LICENSE file.
+* Update deps to fix `npm audit` errors.
+* Prepare the package for publishing on GitHub.
+
 ## 2.0.1 (26.02.2019)
 
 * Fix package name in README.
