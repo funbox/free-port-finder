@@ -15,9 +15,9 @@
   "license": "ISC",
   "devDependencies": {
     "@funboxteam/eslint-config": "5.0.0",
-    "ava": "0.24.0",
+    "ava": "3.10.1",
     "eslint": "5.16.0",
-    "nyc": "11.4.1",
+    "nyc": "15.1.0",
     "pify": "3.0.0"
   }
 }

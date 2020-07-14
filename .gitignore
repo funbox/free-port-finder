@@ -59,6 +59,7 @@ Session.vim
 /test-logs
 /gemini-*
 /screenshots
+/.nyc_output
 
 
 # -- Sass --

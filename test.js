@@ -1,6 +1,6 @@
-import net from 'net';
-import test from 'ava';
-import pify from 'pify';
+const net = require('net');
+const test = require('ava');
+const pify = require('pify');
 
 const { findFreePort, isPortFree } = require('.');
 
@@ -11,9 +11,9 @@ test('should return the passed port value', async (t) => {
 });
 
 test('should throw a port searching error when finding port outside the available range', async (t) => {
-  const port = await t.throws(findFreePort(65536));
+  const port = await t.throwsAsync(() => findFreePort(65536));
 
-  t.is(port.message, '"port" argument must be >= 0 and < 65536');
+  t.is(port.message, 'Port should be >= 0 and < 65536. Received 65536.');
 });
 
 test('should return `true` when available port is chosen', async (t) => {
@@ -34,9 +34,9 @@ test('should return `false` when occupied is chosen', async (t) => {
 });
 
 test('should throw a port searching error when checking port outside the available range', async (t) => {
-  const port = await t.throws(isPortFree(65536));
+  const port = await t.throwsAsync(() => isPortFree(65536));
 
-  t.is(port.message, '"port" argument must be >= 0 and < 65536');
+  t.is(port.message, 'Port should be >= 0 and < 65536. Received 65536.');
 });
 
 test('should return first available port', async (t) => {
