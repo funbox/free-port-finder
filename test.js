@@ -13,7 +13,7 @@ test('should return the passed port value', async (t) => {
 test('should throw a port searching error when finding port outside the available range', async (t) => {
   const port = await t.throwsAsync(() => findFreePort(65536));
 
-  t.is(port.message, 'Port should be >= 0 and < 65536. Received 65536.');
+  t.true(port.message.includes('should be >= 0 and < 65536. Received 65536.'));
 });
 
 test('should return `true` when available port is chosen', async (t) => {
@@ -36,7 +36,7 @@ test('should return `false` when occupied is chosen', async (t) => {
 test('should throw a port searching error when checking port outside the available range', async (t) => {
   const port = await t.throwsAsync(() => isPortFree(65536));
 
-  t.is(port.message, 'Port should be >= 0 and < 65536. Received 65536.');
+  t.true(port.message.includes('should be >= 0 and < 65536. Received 65536.'));
 });
 
 test('should return first available port', async (t) => {
