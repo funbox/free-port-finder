@@ -22,7 +22,7 @@ test('should return `true` when available port is chosen', async (t) => {
   t.is(port, true);
 });
 
-test('should return `false` when occupied is chosen', async (t) => {
+test('should return `false` when occupied port is chosen', async (t) => {
   const needfulPort = 3010;
 
   const server = net.createServer();
@@ -48,4 +48,34 @@ test('should return first available port', async (t) => {
   const port = await findFreePort(needfulPort);
 
   t.not(port, needfulPort);
+});
+
+test('should return the passed port value of the requested host', async (t) => {
+  const port = await findFreePort(3000, '127.0.0.1');
+
+  t.is(port, 3000);
+});
+
+test('should return `false` when occupied port of a requested host is chosen', async (t) => {
+  const requestedHost = '127.0.0.1';
+  const requestedPort = 3010;
+
+  const server = net.createServer();
+  await pify(server.listen.bind(server))(requestedPort, requestedHost);
+
+  const port = await isPortFree(requestedPort, requestedHost);
+
+  t.is(port, false);
+});
+
+test('should return `true` when port of requested host is free whereas the same port of the default host is occupied', async (t) => {
+  const requestedHost = '127.0.0.1';
+  const requestedPort = 3011;
+
+  const server = net.createServer();
+  await pify(server.listen.bind(server))(requestedPort, '0.0.0.0');
+
+  const port = await isPortFree(requestedPort, requestedHost);
+
+  t.is(port, true);
 });
