@@ -1,6 +1,6 @@
 const net = require('net');
 
-const isPortFree = port => new Promise((resolve) => {
+const isPortFree = (port, host = '0.0.0.0') => new Promise((resolve) => {
   const server = net.createServer();
 
   server.once('error', (err) => {
@@ -18,19 +18,19 @@ const isPortFree = port => new Promise((resolve) => {
     server.close();
   });
 
-  server.listen(port, '0.0.0.0');
+  server.listen(port, host);
 });
 
-const findFreePort = port => isPortFree(port)
+const findFreePort = (port, host) => isPortFree(port, host)
   .then((isFree) => {
     if (isFree) {
       return port;
     }
 
-    return findFreePort(port + 1);
+    return findFreePort(port + 1, host);
   });
 
 module.exports = {
-  findFreePort: port => findFreePort(port),
-  isPortFree: port => isPortFree(port),
+  findFreePort: (port, host) => findFreePort(port, host),
+  isPortFree: (port, host) => isPortFree(port, host),
 };
