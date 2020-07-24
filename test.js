@@ -90,11 +90,11 @@ test.serial('should return `true` when port of requested host is free whereas th
   server.once('listening', async () => {
     server.once('close', done);
 
-    const port = await isPortFree(requestedPort, requestedHost);
+    const port = await isPortFree(requestedPort, defaultHost);
     t.is(port, true);
 
     setTimeout(() => server.close());
   });
 
-  server.listen(requestedPort, defaultHost);
+  server.listen(requestedPort, requestedHost);
 });
