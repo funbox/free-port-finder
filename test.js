@@ -43,12 +43,12 @@ test.serial('should return `false` when occupied port is chosen', wrapper, (t, d
   const server = net.createServer();
 
   server.once('listening', async () => {
-    server.once('close', () => setTimeout(done, 3000));
+    server.once('close', done);
 
     const port = await isPortFree(requestedPort);
     t.is(port, false);
 
-    server.close();
+    setTimeout(() => server.close());
   });
 
   server.listen(requestedPort, defaultHost);
@@ -58,12 +58,12 @@ test.serial('should return first available port', wrapper, (t, done) => {
   const server = net.createServer();
 
   server.once('listening', async () => {
-    server.once('close', () => setTimeout(done, 3000));
+    server.once('close', done);
 
     const port = await findFreePort(requestedPort);
     t.not(port, requestedPort);
 
-    server.close();
+    setTimeout(() => server.close());
   });
 
   server.listen(requestedPort, defaultHost);
@@ -73,12 +73,12 @@ test.serial('should return `false` when occupied port of a requested host is cho
   const server = net.createServer();
 
   server.once('listening', async () => {
-    server.once('close', () => setTimeout(done, 3000));
+    server.once('close', done);
 
     const port = await isPortFree(requestedPort, requestedHost);
     t.is(port, false);
 
-    server.close();
+    setTimeout(() => server.close());
   });
 
   server.listen(requestedPort, requestedHost);
@@ -88,21 +88,13 @@ test.serial('should return `true` when port of requested host is free whereas th
   const server = net.createServer();
 
   server.once('listening', async () => {
-    console.log('listening listener is fired');
-    server.once('close', () => {
-      console.log('close listener is fired');
-      setTimeout(() => {
-        console.log('test is done');
-        done();
-      }, 3000);
-    });
+    server.once('close', done);
 
     const port = await isPortFree(requestedPort, requestedHost);
     t.is(port, true);
 
-    server.close();
+    setTimeout(() => server.close());
   });
 
-  console.log('listen');
   server.listen(requestedPort, defaultHost);
 });
