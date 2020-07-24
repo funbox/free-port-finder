@@ -1,5 +1,6 @@
 const net = require('net');
 const test = require('ava');
+const { execSync } = require('child_process');
 
 const { findFreePort, isPortFree } = require('.');
 
@@ -10,25 +11,31 @@ const defaultHost = '0.0.0.0';
 const server1 = net.createServer();
 server1.on('error', err => {
   console.log('server 1 error', err);
+  console.log('server 1', execSync('netstat -ant | grep 5000'));
 });
 server1.listen(5000, '0.0.0.0', () => {
   console.log('server 1', server1.address());
+  console.log('server 1', execSync('netstat -ant | grep 5000'));
 });
 
 const server2 = net.createServer();
 server2.on('error', (err) => {
   console.log('server 2 error', err);
+  console.log('server 2', execSync('netstat -ant | grep 5000'));
 });
 server2.listen(5000, '127.0.0.1', () => {
   console.log('server 2', server2.address());
+  console.log('server 2', execSync('netstat -ant | grep 5000'));
 });
 
 const server3 = net.createServer();
 server3.on('error', err => {
   console.log('server 3 error', err);
+  console.log('server 3', execSync('netstat -ant | grep 5000'));
 });
 server3.listen(5000, '127.0.0.1', () => {
   console.log('server 3', server3.address());
+  console.log('server 3', execSync('netstat -ant | grep 5000'));
 });
 
 const wrapper = (t, run) => new Promise(resolve => run(t, resolve));
