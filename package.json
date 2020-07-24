@@ -2,7 +2,11 @@
   "name": "@funboxteam/free-port-finder",
   "version": "3.0.0",
   "description": "Tiny utility for checking ports availability",
-  "keywords": ["port", "server", "utility"],
+  "keywords": [
+    "port",
+    "server",
+    "utility"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/funbox/free-port-finder"
