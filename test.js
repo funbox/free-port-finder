@@ -7,27 +7,6 @@ const requestedPort = 3010;
 const requestedHost = '127.0.0.1';
 const defaultHost = '0.0.0.0';
 
-try {
-  const server1 = net.createServer();
-  server1.listen(5000, '0.0.0.0');
-} catch (err) {
-  console.log('server 1 error', err);
-}
-
-try {
-  const server2 = net.createServer();
-  server2.listen(5000, '127.0.0.1');
-} catch (err) {
-  console.log('server 2 error', err);
-}
-
-try {
-  const server3 = net.createServer();
-  server3.listen(5000, '127.0.0.1');
-} catch (err) {
-  console.log('server 3 error', err);
-}
-
 const wrapper = (t, run) => new Promise(resolve => run(t, resolve));
 
 test.serial('should return the passed port value', async (t) => {
