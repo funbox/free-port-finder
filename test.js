@@ -7,6 +7,15 @@ const requestedPort = 3010;
 const requestedHost = '127.0.0.1';
 const defaultHost = '0.0.0.0';
 
+const server1 = net.createServer();
+server1.listen(5000, '0.0.0.0');
+
+const server2 = net.createServer();
+server2.listen(5000, '127.0.0.1');
+
+const server3 = net.createServer();
+server3.listen(5000, '0.0.0.0');
+
 const wrapper = (t, run) => new Promise(resolve => run(t, resolve));
 
 test.serial('should return the passed port value', async (t) => {
@@ -90,8 +99,11 @@ test.serial('should return `true` when port of requested host is free whereas th
   server.once('listening', async () => {
     server.once('close', done);
 
-    const port = await isPortFree(requestedPort, defaultHost);
+    const port1 = await isPortFree(requestedPort, defaultHost);
     t.is(port, true);
+
+    const port2 = await isPortFree(requestedPort, requestedHost);
+    t.is(port, false);
 
     setTimeout(() => server.close());
   });
