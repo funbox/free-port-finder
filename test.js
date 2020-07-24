@@ -88,7 +88,14 @@ test.serial('should return `true` when port of requested host is free whereas th
   const server = net.createServer();
 
   server.once('listening', async () => {
-    server.once('close', () => setTimeout(done, 3000));
+    console.log('listening listener is fired');
+    server.once('close', () => {
+      console.log('close listener is fired');
+      setTimeout(() => {
+        console.log('test is done');
+        done();
+      }, 3000);
+    });
 
     const port = await isPortFree(requestedPort, requestedHost);
     t.is(port, true);
@@ -96,5 +103,6 @@ test.serial('should return `true` when port of requested host is free whereas th
     server.close();
   });
 
+  console.log('listen');
   server.listen(requestedPort, defaultHost);
 });
