@@ -84,18 +84,3 @@ test.serial('should return `false` when occupied port of a requested host is cho
   server.listen(requestedPort, requestedHost);
 });
 
-test.serial('should return `true` when port of requested host is free whereas the same port of the default host is occupied', wrapper, (t, done) => {
-  const server = net.createServer();
-
-  server.once('listening', async () => {
-    server.once('close', done);
-
-    const port = await isPortFree(requestedPort, requestedHost);
-    t.is(port, true);
-
-    server.close();
-  });
-
-  server.listen(requestedPort, defaultHost);
-});
-
