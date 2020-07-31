@@ -22,9 +22,9 @@ test.serial('should throw a port searching error when finding port outside the a
 });
 
 test.serial('should return `true` when available port is chosen', async (t) => {
-  const port = await isPortFree(3007);
+  const isFree = await isPortFree(3007);
 
-  t.is(port, true);
+  t.is(isFree, true);
 });
 
 test.serial('should throw a port searching error when checking port outside the available range', async (t) => {
@@ -45,8 +45,8 @@ test.serial('should return `false` when occupied port is chosen', wrapper, (t, d
   server.once('listening', async () => {
     server.once('close', done);
 
-    const port = await isPortFree(requestedPort);
-    t.is(port, false);
+    const isFree = await isPortFree(requestedPort);
+    t.is(isFree, false);
 
     server.close();
   });
@@ -75,8 +75,8 @@ test.serial('should return `false` when occupied port of a requested host is cho
   server.once('listening', async () => {
     server.once('close', done);
 
-    const port = await isPortFree(requestedPort, requestedHost);
-    t.is(port, false);
+    const isFree = await isPortFree(requestedPort, requestedHost);
+    t.is(isFree, false);
 
     server.close();
   });
