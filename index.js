@@ -31,6 +31,6 @@ const findFreePort = (port, host) => isPortFree(port, host)
   });
 
 module.exports = {
-  findFreePort: (port, host) => findFreePort(port, host),
-  isPortFree: (port, host) => isPortFree(port, host),
+  findFreePort,
+  isPortFree,
 };
