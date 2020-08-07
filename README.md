@@ -21,7 +21,7 @@ npm install --save-dev @funboxteam/free-port-finder
 
 ## Usage
 
-`findFreePort(port: number): Promise<number>` searches for the available port starting from the passed one:
+`findFreePort(port: number, host?: string): Promise<number>` searches for the available port starting from the passed one:
 
 ```js
 const { findFreePort } = require('@funboxteam/free-port-finder');
@@ -34,7 +34,7 @@ findFreePort(port)
   });
 ```
 
-`isPortFree(port: number): Promise<bool>` checks the availability of the passed port:
+`isPortFree(port: number, host?: string): Promise<bool>` checks the availability of the passed port:
 
 ```js
 const { isPortFree } = require('@funboxteam/free-port-finder');
@@ -50,5 +50,25 @@ isPortFree(port)
     }
   });
 ```
+
+It is possible to pass host value as second parameter. The default host value is `'0.0.0.0'`.
+
+To check if port on specified host is available:
+
+```js
+const { isPortFree } = require('@funboxteam/free-port-finder');
+
+const port = 3000;
+const host = '127.0.0.1';
+
+isPortFree(port, host)
+  .then(isFree => {
+    if (isFree) {
+      // start
+    } else {
+      // cancel
+    }
+  });
+``` 
 
 [![Sponsored by FunBox](https://funbox.ru/badges/sponsored_by_funbox_centered.svg)](https://funbox.ru)
