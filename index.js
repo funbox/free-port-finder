@@ -21,7 +21,7 @@ const isPortFree = (port, host = '0.0.0.0') => new Promise((resolve) => {
   server.listen(port, host);
 });
 
-const findFreePort = (port, host) => isPortFree(port, host)
+const findFreePort = (port, host = '0.0.0.0') => isPortFree(port, host)
   .then((isFree) => {
     if (isFree) {
       return port;
