@@ -1,8 +1,12 @@
 {
   "name": "@funboxteam/free-port-finder",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Tiny utility for checking ports availability",
-  "keywords": ["port", "server", "utility"],
+  "keywords": [
+    "port",
+    "server",
+    "utility"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/funbox/free-port-finder"
@@ -21,7 +25,6 @@
     "@funboxteam/eslint-config": "5.0.0",
     "ava": "3.10.1",
     "eslint": "5.16.0",
-    "nyc": "15.1.0",
-    "pify": "3.0.0"
+    "nyc": "15.1.0"
   }
 }
