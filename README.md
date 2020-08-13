@@ -69,6 +69,26 @@ isPortFree(port, host)
       // cancel
     }
   });
-``` 
+```
+
+## How it works
+
+In order to understand whether the port is free or not, this package tries to
+run a TCP-server on the specified port. If the server starts, then package kills
+it and signals that the port is free. If an `EADDRINUSE` error occurs, it signals
+that the port is busy. If any other error occurs, then package throws it out.
+
+This solution has both pros and cons.
+
+**Cons:**<br/>
+In some OS incorrect `SO_REUSEADDR` processing is possible, and a free port can
+be signaled as busy (but not vice versa).
+
+**Pros:**<br/>
+It would be possible to go the other way, and try to connect to sockets at
+a specified address, rather than run server on them. But in this case,
+it is possible that the connection to a socket may initiate some process
+in its handler, which could potentially be irreversible. Therefore,
+current solution is safe.
 
 [![Sponsored by FunBox](https://funbox.ru/badges/sponsored_by_funbox_centered.svg)](https://funbox.ru)
