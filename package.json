@@ -18,8 +18,9 @@
   "author": "Dmitry Shvalyov <dmitry@shvalyov.ru> (https://shvalyov.ru)",
   "license": "MIT",
   "scripts": {
-    "test": "nyc ava",
-    "lint": "eslint --cache --ext .js ./"
+    "lint": "eslint --cache --ext .js ./",
+    "prepublishOnly": "lawyer",
+    "test": "nyc ava"
   },
   "devDependencies": {
     "@funboxteam/eslint-config": "5.0.0",
