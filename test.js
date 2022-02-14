@@ -7,7 +7,9 @@ const requestedPort = 3010;
 const requestedHost = '127.0.0.1';
 const defaultHost = '0.0.0.0';
 
-const wrapper = (t, run) => new Promise(resolve => run(t, resolve));
+const wrapper = (t, run) => new Promise(resolve => {
+  run(t, resolve);
+});
 
 test.serial('should return a port value when port if free', async (t) => {
   const port = await findFreePort(3000);
@@ -83,4 +85,3 @@ test.serial('should return `false` when port of a requested host is occupied', w
 
   server.listen(requestedPort, requestedHost);
 });
-
