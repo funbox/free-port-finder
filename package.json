@@ -23,9 +23,9 @@
     "test": "nyc ava"
   },
   "devDependencies": {
-    "@funboxteam/eslint-config": "5.0.0",
+    "@funboxteam/eslint-config": "7.1.0",
+    "eslint": "7.32.0",
     "ava": "3.10.1",
-    "eslint": "5.16.0",
     "nyc": "15.1.0"
   }
 }
