@@ -19,7 +19,7 @@
   "license": "MIT",
   "scripts": {
     "lint": "eslint --cache --ext .js ./",
-    "prepublishOnly": "lawyer",
+    "prepublishOnly": "if [ -z \"$CI\" ]; then lawyer; fi",
     "test": "nyc ava"
   },
   "devDependencies": {
