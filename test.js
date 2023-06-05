@@ -20,7 +20,7 @@ test.serial('should return a port value when port if free', async (t) => {
 test.serial('should throw a port searching error when port is found outside the available range', async (t) => {
   const port = await t.throwsAsync(() => findFreePort(65536));
 
-  t.true(port.message.includes('should be >= 0 and < 65536. Received 65536.'));
+  t.is(port.code, 'ERR_SOCKET_BAD_PORT');
 });
 
 test.serial('should return `true` when port is free', async (t) => {
@@ -32,7 +32,7 @@ test.serial('should return `true` when port is free', async (t) => {
 test.serial('should throw a port searching error when port is outside the available range', async (t) => {
   const port = await t.throwsAsync(() => isPortFree(65536));
 
-  t.true(port.message.includes('should be >= 0 and < 65536. Received 65536.'));
+  t.is(port.code, 'ERR_SOCKET_BAD_PORT');
 });
 
 test.serial('should return a port value of the requested host', async (t) => {
