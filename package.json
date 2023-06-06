@@ -20,12 +20,12 @@
   "scripts": {
     "lint": "eslint --cache --ext .js ./",
     "prepublishOnly": "if [ -z \"$CI\" ]; then lawyer; fi",
-    "test": "nyc ava"
+    "test": "mocha"
   },
   "devDependencies": {
     "@funboxteam/eslint-config": "7.3.0",
-    "ava": "5.3.0",
+    "chai": "4.3.7",
     "eslint": "7.32.0",
-    "nyc": "15.1.0"
+    "mocha": "10.2.0"
   }
 }
