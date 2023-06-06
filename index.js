@@ -1,4 +1,4 @@
-const net = require('net');
+const net = require('node:net');
 
 const isPortFree = (port, host = '0.0.0.0') => new Promise((resolve) => {
   const server = net.createServer();

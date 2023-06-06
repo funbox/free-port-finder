@@ -1,6 +1,6 @@
 {
   "name": "@funboxteam/free-port-finder",
-  "version": "3.1.1",
+  "version": "4.0.0",
   "description": "Tiny utility for checking ports availability",
   "keywords": [
     "port",
@@ -20,12 +20,12 @@
   "scripts": {
     "lint": "eslint --cache --ext .js ./",
     "prepublishOnly": "if [ -z \"$CI\" ]; then lawyer; fi",
-    "test": "nyc ava"
+    "test": "mocha"
   },
   "devDependencies": {
-    "@funboxteam/eslint-config": "7.1.0",
-    "ava": "3.15.0",
+    "@funboxteam/eslint-config": "7.3.0",
+    "chai": "4.3.7",
     "eslint": "7.32.0",
-    "nyc": "15.1.0"
+    "mocha": "10.2.0"
   }
 }
